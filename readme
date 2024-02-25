@@ -4,7 +4,7 @@
 
 
 
-2) You are going to need to create 2 template sensors, this can be found in devices and then click on helper then new helper. You will want to select "Template Sensor"
+2) You are going to need to create 2 template sensors, this can be found in devices & Sevices and then click on helper then new helper. You will want to select "Template Sensor"
 
 3) Create a Tempate sensor called powerwall_charge_watts with the following state tempate code making sure the sensor name is corrrect if it is you should see a value show up in preview 
 
