@@ -1,1 +1,7 @@
 
+1)  Identify the name that the Battery Power is given, in my case it is sensor.my_home_battery-power i suspect that yours will be the same 
+
+
+
+
+2) You are going to need to create 2 template sensors, this can be found in devices and then click on helper then new helper. You will want to select "Template Sensor"
