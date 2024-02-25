@@ -5,3 +5,35 @@
 
 
 2) You are going to need to create 2 template sensors, this can be found in devices and then click on helper then new helper. You will want to select "Template Sensor"
+
+3) Create a Tempate sensor called powerwall_charge_watts with the following state tempate code making sure the sensor name is corrrect if it is you should see a value show up in preview 
+
+    ```
+
+          {% set import_power = states('sensor.my_home_battery_power') | float  %}
+          {% if import_power < 0 %}
+          {{ ( (import_power * -1) ) | round (2) }}
+          {% else %}
+          {{ 0 }}
+          {% endif %}
+```
+
+3) Create a Tempate sensor called powerwall_discharge_watts with the following state tempate code making sure the sensor name is corrrect if it is you should see a value show up in preview 
+
+
+```
+
+          {% set export_power = states('sensor.my_home_battery_power') | float  %}
+          {% if export_power > 0 %}
+          {{ ( export_power ) | round (2) }}
+          {% else %}
+          {{ 0 }}
+          {% endif %}
+
+```
+
+4) create an Intergration - Riemann sum intergral sensor with the powerwall_charge_watts as the sourse sensor this will be called "Powerwall_import" 
+
+5) create an Intergration - Riemann sum intergral sensor with the powerwall_discharge_watts as the sourse sensor this will be called "Powerwall_export" 
+
+6) Go to your eneryg dashbaord config and add the 2 new sensors as the battery, energy going to the battery is "import" and enrgy coming out of the battery is "export" 
